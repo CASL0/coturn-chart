@@ -27,8 +27,10 @@ A Helm chart to deploy coturn
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| certificate.duration | string | `"2160h"` | The requested 'duration' (i.e. lifetime) of the Certificate. |
 | certificate.enabled | bool | `false` | Enables auto issuing certificates over cert-manager certificates https://cert-manager.io/docs/concepts/certificate/ |
 | certificate.issuerName | string | `"letsencrypt-staging"` | name of cert-manager issuer to use for cert generation. change to production issuer when you're stable |
+| certificate.renewBefore | string | `"360h"` | How long before the currently issued certificate's expiry cert-manager should renew the certificate. |
 | certificate.secret | string | `"turn-tls"` | name of secret to create for ssl cert |
 | coturn.auth.existingSecret | string | `""` | existing secret with keys username/password for coturn |
 | coturn.auth.password | string | `""` | password for the main user of the turn server |

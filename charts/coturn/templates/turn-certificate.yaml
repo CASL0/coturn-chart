@@ -14,4 +14,6 @@ spec:
     size: 4096
   dnsNames:
     - {{ .Values.certificate.host | quote }}
+  duration: {{ .Values.certificate.duration }}
+  renewBefore: {{ .Values.certificate.renewBefore }}
 {{- end }}

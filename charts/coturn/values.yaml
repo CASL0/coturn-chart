@@ -49,6 +49,10 @@ certificate:
   # -- name of cert-manager issuer to use for cert generation.
   # change to production issuer when you're stable
   issuerName: "letsencrypt-staging"
+  # -- The requested 'duration' (i.e. lifetime) of the Certificate.
+  duration: 2160h # 90d
+  # -- How long before the currently issued certificate's expiry cert-manager should renew the certificate.
+  renewBefore: 360h # 15d
 
 externalDatabase:
   # -- enables the use of postgresql instead of the default sqlite
