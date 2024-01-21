@@ -4,6 +4,9 @@ replicas: 1
 # -- different name for the helm release
 nameOverride: ""
 
+# -- podAnnotations Annotations for coturn pods
+podAnnotations: {}
+
 service:
   # -- The type of service to deploy for routing Coturn traffic.
   #   ClusterIP: Recommended for DaemonSet configurations. This will create a
