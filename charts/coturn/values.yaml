@@ -27,6 +27,8 @@ service:
   # -- I don't actually know what this is 🤔 open a PR if you know
   #    was originally "Local"
   externalTrafficPolicy: ""
+  # -- annotations for the Service
+  annotations: {}
 
 image:
   # -- container registry and repo for coturn docker image
@@ -119,7 +121,6 @@ postgresql:
       # -- ConfigMap with scripts to be run at first boot
       scriptsConfigMap: initdb-scripts-config
 
-
 # MySQL chart configuration
 # see: https://github.com/bitnami/charts/tree/main/bitnami/mysql
 mysql:
@@ -132,7 +133,7 @@ mysql:
     password: ""
     # -- database to create, ignored if existingSecret is passed in
     database: "coturn"
-    # -- Use existing secret for password details. 
+    # -- Use existing secret for password details.
     # The secret has to contain the keys mysql-root-password, mysql-replication-password and mysql-password
     existingSecret: ""
     # Names of the keys in existing secret to use for MySQL credentials
