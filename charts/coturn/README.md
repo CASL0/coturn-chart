@@ -69,11 +69,6 @@ A Helm chart to deploy coturn
 | mysql.enabled | bool | `false` | enables bitnami mysql subchart, you can disable to use external db |
 | mysql.initdbScriptsConfigMap | string | `"initdb-scripts-config"` | ConfigMap with the initdb scripts (Note: Overrides initdbScripts) |
 | nameOverride | string | `""` | different name for the helm release |
-| persistence.accessMode | string | `"ReadWriteOnce"` | access mode for the PVC, ignored if persistence.existingClaim passed in |
-| persistence.annotations | object | `{}` | annotations for the PVC, ignored if persistence.existingClaim passed in |
-| persistence.existingClaim | string | `""` | existing PVC to use instead of creating one on the fly |
-| persistence.size | string | `"1Mi"` | size of the PVC, ignored if persistence.existingClaim passed in |
-| persistence.storageClass | string | `""` | storageClass for the PVC, ignored if persistence.existingClaim passed in |
 | podAnnotations | object | `{}` | podAnnotations Annotations for coturn pods |
 | postgresql.enabled | bool | `false` | enables bitnami postgresql subchart, you can disable to use external db |
 | postgresql.global.postgresql.auth.database | string | `"coturn"` | database to create, ignored if existingSecret is passed in |
