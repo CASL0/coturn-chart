@@ -201,6 +201,11 @@ spec:
             - name: turn-udp-dtls
               containerPort: {{ .Values.coturn.ports.tlsListening }}
               protocol: UDP
+            {{- range $i, $port := untilStep (.Values.coturn.ports.min | int) (.Values.coturn.ports.max | int) 1 }}
+            - name: "session-{{ $i }}"
+              containerPort: {{ $port }}
+              protocol: "UDP"
+            {{- end }}
           volumeMounts:
             - name: {{ .Release.Name }}-config
               mountPath: "/turnserver.conf"
