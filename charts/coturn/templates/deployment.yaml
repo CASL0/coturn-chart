@@ -235,11 +235,6 @@ spec:
           configMap:
             name: {{ .Release.Name }}-extra-config
         - name: {{ .Release.Name }}-config
-          persistentVolumeClaim:
-            {{- if .Values.persistence.existingClaim }}
-            claimName: {{ .Values.persistence.existingClaim }}
-            {{ else }}
-            claimName: {{ .Release.Name }}-config
-            {{- end }}
+          emptyDir: {}
         - name: var-tmp
           emptyDir: {}
