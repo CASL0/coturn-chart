@@ -201,3 +201,29 @@ securityContext:
     add: ["NET_BIND_SERVICE"]
     # -- linux cabilities to disallow for the coturn k8s pod
     drop: ["ALL"]
+readinessProbe:
+  # -- Enables kubernetes ReadinessProbe.
+  enabled: true
+  # -- Delay after container start until ReadinessProbe is executed.
+  initialDelaySeconds: 15
+  # -- Number of failed executions until container is terminated.
+  failureThreshold: 10
+  # -- Time between probe executions.
+  periodSeconds: 20
+  # -- Number of successful executions after failed ones until container is marked healthy.
+  successThreshold: 1
+  # -- Timeout for command return.
+  timeoutSeconds: 5
+livenessProbe:
+  # -- Enables kubernetes LivenessProbe.
+  enabled: true
+  # -- Number of failed executions until container is terminated.
+  failureThreshold: 10
+  # -- Delay after container start until LivenessProbe is executed.
+  initialDelaySeconds: 15
+  # -- Time between probe executions.
+  periodSeconds: 20
+  # -- Number of successful executions after failed ones until container is marked healthy.
+  successThreshold: 1
+  # -- Timeout for command return.
+  timeoutSeconds: 5
