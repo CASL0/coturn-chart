@@ -27,6 +27,11 @@ A Helm chart to deploy coturn
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| autoscaling.cpu.targetAverageUtilization | int | `80` | set the CPU Utilization Percentage |
+| autoscaling.enabled | bool | `true` | Enable Horizontal Pod Autoscaling |
+| autoscaling.maxReplicas | int | `10` | Maximum amount of Replicas |
+| autoscaling.memory.targetAverageUtilization | int | `80` | set the Memory Utilization Percentage |
+| autoscaling.minReplicas | int | `1` | Minimum amount of Replicas |
 | certificate.duration | string | `"2160h"` | The requested 'duration' (i.e. lifetime) of the Certificate. |
 | certificate.enabled | bool | `false` | Enables auto issuing certificates over cert-manager certificates https://cert-manager.io/docs/concepts/certificate/ |
 | certificate.issuerName | string | `"letsencrypt-staging"` | name of cert-manager issuer to use for cert generation. change to production issuer when you're stable |

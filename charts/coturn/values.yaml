@@ -227,3 +227,16 @@ livenessProbe:
   successThreshold: 1
   # -- Timeout for command return.
   timeoutSeconds: 5
+autoscaling:
+  # -- Enable Horizontal Pod Autoscaling
+  enabled: true
+  # -- Minimum amount of Replicas
+  minReplicas: 1
+  # -- Maximum amount of Replicas
+  maxReplicas: 10
+  cpu:
+    # -- set the CPU Utilization Percentage
+    targetAverageUtilization: 80
+  memory:
+    # -- set the Memory Utilization Percentage
+    targetAverageUtilization: 80
